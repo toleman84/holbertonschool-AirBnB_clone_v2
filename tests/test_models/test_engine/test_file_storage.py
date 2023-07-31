@@ -6,7 +6,7 @@ from models import storage
 import os
 
 
-class TestFileStorage(unittest.TestCase):
+class test_fileStorage(unittest.TestCase):
     """ Class to test the file storage method """
 
     def setUp(self):
@@ -86,9 +86,9 @@ class TestFileStorage(unittest.TestCase):
         new.save()
         self.assertTrue(os.path.exists('file.json'))
 
-    '''def test_type_path(self):
+    def test_type_path(self):
         """ Confirm __file_path is string """
-        self.assertEqual(type(storage._FileStorage__file_path), str)'''
+        self.assertEqual(type(storage._FileStorage__file_path), str)
 
     def test_type_objects(self):
         """ Confirm __objects is a dict """
@@ -107,7 +107,3 @@ class TestFileStorage(unittest.TestCase):
         from models.engine.file_storage import FileStorage
         print(type(storage))
         self.assertEqual(type(storage), FileStorage)
-
-
-if __name__ == "__main__":
-    unittest.main()
