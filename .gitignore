@@ -1,0 +1,13 @@
+# 
+
+# Tmp files
+*~
+
+# Pycache files
+*__pycache__*
+
+# .pyc files
+*.pyc
+
+#created file from running console
+file.json
