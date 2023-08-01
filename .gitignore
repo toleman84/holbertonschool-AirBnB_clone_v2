@@ -11,3 +11,6 @@
 
 #created file from running console
 file.json
+
+# files of mains
+main_delete.py
