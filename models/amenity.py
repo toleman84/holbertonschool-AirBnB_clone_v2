@@ -6,5 +6,5 @@ from sqlalchemy import Column, String
 
 
 class Amenity(BaseModel, Base):
-    __tablename__ = "amenities"
+    # __tablename__ = "amenities"
     name = Column(String(128), nullable=False)
