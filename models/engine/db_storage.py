@@ -44,12 +44,12 @@ class DBStorage:
         if cls:
             for objects in self.__session.query(cls).all():
                 dictionary.update('{}.{}'.
-                                  format(type(cls).__name__, objects.id))
+                                  format(type(objects).__name__, objects.id))
         else:
             for key, value in all_classes.items():
                 for objects in self.__session.query(value):
                     dictionary.update('{}.{}'.
-                                      format(type(cls).__name__, objects.id))
+                                      format(type(objects).__name__, objects.id))
         return dictionary
 
     def new(self, obj):
