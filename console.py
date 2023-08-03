@@ -118,37 +118,38 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        elif args.split()[0] not in HBNBCommand.classes:
+
+        args = args.split()
+
+        if args[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
 
-        """ split args into class and parameters """
-        class_name = args.split()[0]
-        param = args.split()[1:]
+        new_instance = HBNBCommand.classes.get(args[0])()
 
-        new_instance = HBNBCommand.classes[class_name]()
-        """ split parameters into key and value """
-        for p in param:
-            p = p.split('=')
-            key = p[0]
-            value = p[1]
+        if len(args) > 1:
+            args = args[1:]
 
-            """ checks type of value and replace special characters """
-            if "\"" in value:
-                value = value.strip("\"")
-                if "_" in value:
-                    value = value.replace("_", " ")
-            elif "." in value:
-                value = float(value)
-            else:
-                value = int(value)
+            for item in args:
+                a_item = item.split("=")
 
-            """ set attributes in new instance """
-            setattr(new_instance, key, value)
+                if "\"" in a_item[1]:
+                    a_item[1] = a_item[1].strip("\"")
 
-        storage.save()
+                    if "_" in a_item[1]:
+                        a_item[1] = a_item[1].replace("_", " ")
+
+                elif "." in a_item[1]:
+                    a_item[1] = float(a_item[1])
+
+                else:
+                    a_item[1] = int(a_item[1])
+
+                new_instance.__dict__.update(
+                        {"{}".format(a_item[0]):"{}".format(a_item[1])})
+
         print(new_instance.id)
-        storage.save()
+        new_instance.save()
 
     def help_create(self):
         """ Help information for the create method """
