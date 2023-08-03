@@ -4,8 +4,8 @@ from models.base_model import BaseModel
 from models.base_model import Base
 import models
 from sqlalchemy import Column, String, Integer, Float, ForeignKey
-from sqlalchemy.orm import relationship
-from os import getenv
+#from sqlalchemy.orm import relationship
+#from os import getenv
 
 
 class Place(BaseModel):
