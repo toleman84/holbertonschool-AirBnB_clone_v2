@@ -42,14 +42,18 @@ class DBStorage:
         dictionary = {}
 
         if cls:
-            for objects in self.__session.query(cls).all():
-                dictionary.update('{}.{}'.
-                                  format(type(objects).__name__, objects.id))
+            for record in self.__session.query(cls).order_by(cls.id):
+                dictionary.update(
+                    {"{}.{}".
+                     format(type(record).__name__, record.id): record})
+
         else:
-            for key, value in all_classes.items():
-                for objects in self.__session.query(value):
-                    dictionary.update('{}.{}'.
-                                      format(type(objects).__name__, objects.id))
+            for obj in self.__classes:
+                for record in self.__session.query(obj).order_by(obj.id):
+                    dictionary.update(
+                        {"{}.{}".
+                         format(type(record).__name__, record.id): record})
+
         return dictionary
 
     def new(self, obj):
