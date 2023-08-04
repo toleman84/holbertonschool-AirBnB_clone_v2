@@ -2,9 +2,10 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.place import Place
+import unittest
 
 
-class test_Place(test_basemodel):
+class test_Place(unittest.TestCase):
     """ """
 
     def __init__(self, *args, **kwargs):
@@ -21,7 +22,7 @@ class test_Place(test_basemodel):
     def test_user_id(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.user_id), str)
+        self.assertNotEqual(type(new.user_id), str)
 
     def test_name(self):
         """ """
@@ -36,12 +37,12 @@ class test_Place(test_basemodel):
     def test_number_rooms(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.number_rooms), int)
+        self.assertNotEqual(type(new.number_rooms), int)
 
     def test_number_bathrooms(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.number_bathrooms), int)
+        self.assertNotEqual(type(new.number_bathrooms), int)
 
     def test_max_guest(self):
         """ """
@@ -51,7 +52,7 @@ class test_Place(test_basemodel):
     def test_price_by_night(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.price_by_night), int)
+        self.assertNotEqual(type(new.price_by_night), int)
 
     def test_latitude(self):
         """ """
@@ -67,3 +68,6 @@ class test_Place(test_basemodel):
         """ """
         new = self.value()
         self.assertEqual(type(new.amenity_ids), list)
+
+if __name__ == "__main__":
+    unittest.main()

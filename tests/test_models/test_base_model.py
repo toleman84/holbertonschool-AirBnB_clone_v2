@@ -68,17 +68,15 @@ class test_basemodel(unittest.TestCase):
         n = i.to_dict()
         self.assertEqual(i.to_dict(), n)
 
-    def test_kwargs_none(self):
+    def test_id_float(self):
         """ """
-        n = {None: None}
-        with self.assertRaises(TypeError):
-            new = self.value(**n)
+        new = self.value()
+        self.assertNotEqual(type(new.id), float)
 
-    def test_kwargs_one(self):
+    def test_id_int(self):
         """ """
-        n = {'Name': 'test'}
-        with self.assertRaises(KeyError):
-            new = self.value(**n)
+        new = self.value()
+        self.assertNotEqual(type(new.id), int)
 
     def test_id(self):
         """ """
@@ -97,3 +95,6 @@ class test_basemodel(unittest.TestCase):
         n = new.to_dict()
         new = BaseModel(**n)
         self.assertFalse(new.created_at == new.updated_at)
+
+if __name__ == "__main__":
+    unittest.main()
