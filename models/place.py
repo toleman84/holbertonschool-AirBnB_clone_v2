@@ -7,7 +7,13 @@ from sqlalchemy.orm import relationship
 from os import getenv
 
 metadata = Base.metadata
-place_amenity = Table('place_amenity', metadata, Column('Place_id', String(60), ForeignKey('places.id'), primary_key=True, nullable=False), Column('amenity_id', String(60), ForeignKey('amenities.id'), primary_key=True, nullable=False))
+place_amenity = Table('place_amenity', metadata,
+                      Column('Place_id', String(60), ForeignKey('places.id'),
+                             primary_key=True, nullable=False),
+                      Column('amenity_id', String(60),
+                             ForeignKey('amenities.id'),
+                             primary_key=True, nullable=False))
+
 
 class Place(BaseModel, Base):
     """ A place to stay """
@@ -25,18 +31,30 @@ class Place(BaseModel, Base):
     amenity_ids = []
 
     if getenv("HBNB_TYPE_STORAGE") == "db":
-        reviews = relationship('Review', cascade='all, delete, delete-orphan', backref='place')
-        amenities = relationship('Amenity', secondary='place_amenity', viewonly=False)
+        reviews = relationship('Review', cascade='all, delete, delete-orphan',
+                               backref='place')
+        amenities = relationship('Amenity',
+                                 secondary='place_amenity', viewonly=False)
     else:
         @property
         def reviews(self):
             """returns the list of Review"""
             rev_list = []
             for key, value in models.storage.all().items():
-                if value.__class__.__name__ == 'Review' and value.place_id == self.id:
+                if value.__class__.__name__ == 'Review' and \
+                        value.place_id == self.id:
                     rev_list.append(value)
             return rev_list
+
         @property
         def amenities(self):
+            """returns list of Amenity instances based on
+            amenity_ids containing Amenity.id linked to Place """
+            return self.amenity_ids
 
-        
+        @amenities.setter
+        def amenities(self, obj):
+            """ append method for adding an Amenity.id
+            to the attribute amenity_ids """
+            if type(obj) is Amenity and obj.id not in self.amenity_ids:
+                self.amenity_ids.append(obj.id)
