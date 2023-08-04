@@ -2,9 +2,10 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.place import Place
+import unittest
 
 
-class test_Place(test_basemodel):
+class test_Place(unittest.TestCase):
     """ """
 
     def __init__(self, *args, **kwargs):
@@ -67,3 +68,6 @@ class test_Place(test_basemodel):
         """ """
         new = self.value()
         self.assertEqual(type(new.amenity_ids), list)
+
+if __name__ == "__main__":
+    unittest.main()

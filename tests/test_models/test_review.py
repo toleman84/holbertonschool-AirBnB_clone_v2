@@ -2,9 +2,10 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.review import Review
+import unittest
 
 
-class test_review(test_basemodel):
+class test_review(unittest.TestCase):
     """ """
 
     def __init__(self, *args, **kwargs):
@@ -27,3 +28,6 @@ class test_review(test_basemodel):
         """ """
         new = self.value()
         self.assertEqual(type(new.text), str)
+
+if __name__ == "__main__":
+    unittest.main()
