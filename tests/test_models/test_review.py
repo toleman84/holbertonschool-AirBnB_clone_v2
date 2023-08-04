@@ -29,5 +29,6 @@ class test_review(unittest.TestCase):
         new = self.value()
         self.assertNotEqual(type(new.text), str)
 
+
 if __name__ == "__main__":
     unittest.main()

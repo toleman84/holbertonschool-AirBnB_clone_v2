@@ -19,5 +19,6 @@ class test_state(unittest.TestCase):
         new = self.value()
         self.assertNotEqual(type(new.name), str)
 
+
 if __name__ == "__main__":
     unittest.main()

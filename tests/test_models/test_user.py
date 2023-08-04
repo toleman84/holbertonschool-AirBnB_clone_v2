@@ -34,5 +34,6 @@ class test_User(unittest.TestCase):
         new = self.value()
         self.assertNotEqual(type(new.password), str)
 
+
 if __name__ == "__main__":
     unittest.main()

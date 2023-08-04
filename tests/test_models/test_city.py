@@ -24,5 +24,6 @@ class test_City(unittest.TestCase):
         new = self.value()
         self.assertEqual(type(new.name), str)
 
+
 if __name__ == "__main__":
     unittest.main()
