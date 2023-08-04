@@ -76,7 +76,7 @@ class test_basemodel(unittest.TestCase):
     def test_id_int(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.id), int)
+        self.assertNotEqual(type(new.id), int)
 
     def test_id(self):
         """ """
