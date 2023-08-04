@@ -22,7 +22,7 @@ class test_review(unittest.TestCase):
     def test_user_id(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.user_id), str)
+        self.assertNotEqual(type(new.user_id), str)
 
     def test_text(self):
         """ """

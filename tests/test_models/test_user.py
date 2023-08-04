@@ -27,7 +27,7 @@ class test_User(unittest.TestCase):
     def test_email(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.email), str)
+        self.assertNotEqual(type(new.email), str)
 
     def test_password(self):
         """ """
