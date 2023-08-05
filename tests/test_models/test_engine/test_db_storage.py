@@ -6,8 +6,8 @@ from console import HBNBCommand
 from models.state import State
 
 
-class test_DBstorage(unittest.TestCase):
-    """ """
+class TestDBstorage(unittest.TestCase):
+    """ test DB Storage """
     def create(self):
         """some"""
         return HBNBCommand()

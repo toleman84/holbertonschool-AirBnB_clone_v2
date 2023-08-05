@@ -5,10 +5,10 @@ import unittest
 from console import HBNBCommand
 
 
-class test_Console(unittest.TestCase):
+class TestConsole(unittest.TestCase):
 
     def test_create(self):
-        """ """
+        """ test create """
         return HBNBCommand()
 
 
