@@ -5,10 +5,11 @@ import models
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from os import getenv
+from sqlalchemy.ext.declarative import declarative_base
 
 metadata = Base.metadata
 place_amenity = Table('place_amenity', metadata,
-                      Column('Place_id', String(60), ForeignKey('places.id'),
+                      Column('place_id', String(60), ForeignKey('places.id'),
                              primary_key=True, nullable=False),
                       Column('amenity_id', String(60),
                              ForeignKey('amenities.id'),
@@ -58,3 +59,5 @@ class Place(BaseModel, Base):
             to the attribute amenity_ids """
             if type(obj) is Amenity and obj.id not in self.amenity_ids:
                 self.amenity_ids.append(obj.id)
+            else:
+                pass
