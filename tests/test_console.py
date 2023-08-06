@@ -2,6 +2,7 @@
 """doc"""
 import unittest
 from console import HBNBCommand
+from models import storage
 
 
 class TestHBNBCommand(unittest.TestCase):
@@ -20,7 +21,7 @@ class TestHBNBCommand(unittest.TestCase):
         test_obj = HBNBCommand()
         test_cmd = "create User name=John Doe email=johndoe@example.com"
         test_obj.do_create(test_cmd)
-        user = self.storage.all("User")["User.1"]
+        user = storage.all("User")["User.1"]
         self.assertEqual(user.name, "John Doe")
         self.assertEqual(user.email, "johndoe@example.com")
 
@@ -30,7 +31,7 @@ class TestHBNBCommand(unittest.TestCase):
         test_obj = HBNBCommand()
         test_cmd = "show User 1"
         test_obj.do_show(test_cmd)
-        user = self.storage.all("User")["User.1"]
+        user = storage.all("User")["User.1"]
         self.assertEqual(user, test_obj.last_printed)
 
     def test_do_destroy(self):
@@ -41,7 +42,7 @@ class TestHBNBCommand(unittest.TestCase):
         test_obj.do_create(test_cmd)
         test_cmd = "destroy User 1"
         test_obj.do_destroy(test_cmd)
-        user = self.storage.all("User")["User.1"]
+        user = storage.all("User")["User.1"]
         self.assertIsNone(user)
 
     def test_do_all(self):
@@ -65,7 +66,7 @@ class TestHBNBCommand(unittest.TestCase):
         test_obj.do_create(test_cmd)
         test_cmd = "update User 1 name=Jane Doe email=janedoe@example.com"
         test_obj.do_update(test_cmd)
-        user = self.storage.all("User")["User.1"]
+        user = storage.all("User")["User.1"]
         self.assertEqual(user.name, "Jane Doe")
         self.assertEqual(user.email, "janedoe@example.com")
 
