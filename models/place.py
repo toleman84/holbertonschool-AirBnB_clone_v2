@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
-from models.amenity import Amenity
 from models.base_model import BaseModel, Base
 import models
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
@@ -39,18 +38,6 @@ class Place(BaseModel, Base):
                                  secondary=place_amenity, viewonly=False,
                                  back_populates='place_amenities')
     else:
-        city_id = ""
-        user_id = ""
-        name = ""
-        description = ""
-        number_rooms = 0
-        number_bathrooms = 0
-        max_guest = 0
-        price_by_night = 0
-        latitude = 0.0
-        longitude = 0.0
-        amenity_ids = []
-
         @property
         def reviews(self):
             """returns the list of Review"""
