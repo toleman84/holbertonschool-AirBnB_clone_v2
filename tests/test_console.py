@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """doc"""
+from io import StringIO
 import sys
 import unittest
 from console import HBNBCommand
@@ -14,6 +15,8 @@ class test_console(unittest.TestCase):
     def setUp(self):
         '''setup for'''
         self.backup = sys.stdout
+        self.capt_out = StringIO()
+        sys.stdout = self.capt_out
 
     def tearDown(self):
         """_summary_
