@@ -3,7 +3,7 @@
 import unittest
 
 
-class TestDBStorage(unittest.TestCase):
+class Test_DBStorage(unittest.TestCase):
     '''Tests the DBStorage storage engine'''
 
     def setUp(self):
