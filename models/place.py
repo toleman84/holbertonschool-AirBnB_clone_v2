@@ -58,7 +58,7 @@ class Place(BaseModel, Base):
         def amenities(self, obj):
             """ append method for adding an Amenity.id
             to the attribute amenity_ids """
-            if type(obj) is Amenity and obj.id not in self.amenity_ids:
+            if type(obj) is 'Amenity' and obj.id not in self.amenity_ids:
                 self.amenity_ids.append(obj.id)
             else:
                 pass
