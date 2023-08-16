@@ -17,8 +17,7 @@ def close_session():
 @app.route("/states_list", strict_slashes=False)
 def states_list():
     """gets all of the State objects from the storage engine"""
-    states = storage.all(State)
-    states = sorted(states, key=lambda state: state.name)
+    states = storage.all(State).order_by(State.name)
     return render_template("7-states_list.html", states=states)
 
 
