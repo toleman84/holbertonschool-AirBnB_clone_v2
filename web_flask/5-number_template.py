@@ -30,14 +30,14 @@ def python(text):
     return "Python " + text.replace("_", " ")
 
 
-@app.route("/number/<n>", strict_slashes=False)
+@app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
     """Is it a number?"""
     if isinstance(n, int):
         return ("{} is a number".format(n))
 
 
-@app.route("/number_template/<n>", strict_slashes=False)
+@app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
     """Number template"""
     if isinstance(n, int):
