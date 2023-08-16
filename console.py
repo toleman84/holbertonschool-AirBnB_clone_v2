@@ -146,7 +146,7 @@ class HBNBCommand(cmd.Cmd):
                     a_item[1] = int(a_item[1])
 
                 new_instance.__dict__.update(
-                        {"{}".format(a_item[0]):"{}".format(a_item[1])})
+                        {"{}".format(a_item[0]): "{}".format(a_item[1])})
 
         print(new_instance.id)
         new_instance.save()
