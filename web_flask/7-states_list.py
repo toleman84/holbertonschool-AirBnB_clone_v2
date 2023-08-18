@@ -14,7 +14,7 @@ def close_session(arg=None):
     storage.close()
 
 
-@app.route("/states_list") #, strict_slashes=False
+@app.route("/states_list")
 def states_list():
     """gets all of the State objects from the storage engine"""
     states = storage.all(State).order_by(State.name)
