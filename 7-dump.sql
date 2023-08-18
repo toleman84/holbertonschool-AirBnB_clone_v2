@@ -47,7 +47,7 @@ CREATE TABLE `cities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-
+ALTER TABLE places ADD CONSTRAINT places_city_id_fk FOREIGN KEY (city_id) REFERENCES cities (id);
 
 --
 -- Dumping data for table `cities`
