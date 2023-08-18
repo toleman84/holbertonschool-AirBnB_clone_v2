@@ -45,7 +45,7 @@ CREATE TABLE `cities` (
   KEY `state_id` (`state_id`),
   CONSTRAINT `cities_ibfk_1` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cities`
@@ -73,7 +73,6 @@ CREATE TABLE `states` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-ALTER TABLE places ADD CONSTRAINT places_city_id_fk FOREIGN KEY (city_id) REFERENCES cities (id);
 
 --
 -- Dumping data for table `states`
