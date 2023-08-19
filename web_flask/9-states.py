@@ -27,7 +27,7 @@ def states_id(id):
     state = storage.all(State)
     if state is not None:
         cities = state.cities
-        return render_template("9-states.html", state=state.values(), cities=cities)
+        return render_template("9-states.html", state=state.values(), cities=cities.values())
 
 
 if __name__ == "__main__":
