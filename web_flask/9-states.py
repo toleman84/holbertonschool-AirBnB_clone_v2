@@ -14,20 +14,14 @@ def close_session(arg=None):
     storage.close()
 
 
-@app.route("/states", strict_slashes=False)
-def states():
-    """doc"""
-    states = storage.all(State)
-    return render_template("9-states.html", states=states.values())
-
-
-@app.route("/states/<id>", strict_slashes=False)
+@app.route("/states")
+@app.route("/states/<id>")
 def states_id(id=None):
     """doc"""
-    state = storage.all(State)
-    if state is not None:
-        return render_template("9-states.html", state=state.values(), id=id)
+    states = storage.all(State)
+    return render_template("9-states.html", states=states.values(), id=id)
 
 
 if __name__ == "__main__":
+    app.url_map.strict_slashes = False
     app.run(host='0.0.0.0', port=5000)
