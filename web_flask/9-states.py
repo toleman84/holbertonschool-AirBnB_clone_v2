@@ -22,11 +22,11 @@ def states():
 
 
 @app.route("/states/<id>", strict_slashes=False)
-def states_id():
+def states_id(id=None):
     """doc"""
     state = storage.all(State)
     if state is not None:
-        return render_template("9-states.html", state=state.values())
+        return render_template("9-states.html", state=state.values(), id=id)
 
 
 if __name__ == "__main__":
