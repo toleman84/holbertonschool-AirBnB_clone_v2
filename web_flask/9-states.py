@@ -22,7 +22,7 @@ def states():
 
 
 @app.route("/states/<id>", strict_slashes=False)
-def states_id(id):
+def states_id():
     """doc"""
     state = storage.all(State)
     if state is not None:
