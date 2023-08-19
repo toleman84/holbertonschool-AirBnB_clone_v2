@@ -17,7 +17,7 @@ def close_session():
 @app.route("/states", strict_slashes=False)
 def states():
     """doc"""
-    states = storage.all(State).order_by(State.name)
+    states = storage.all(State)
     return render_template("9-states.html", states=states)
 
 

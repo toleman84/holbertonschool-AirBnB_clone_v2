@@ -18,8 +18,8 @@ def close_session():
 @app.route("/hbnb_filters", strict_slashes=False)
 def hbnb_filters():
     """doc"""
-    states = storage.all(State).order_by(State.name)
-    amenities = storage.all(Amenity).order_by(Amenity.name)
+    states = storage.all(State)
+    amenities = storage.all(Amenity)
     return render_template("10-hbnb_filters.html", states=states,
                            amenities=amenities)
 

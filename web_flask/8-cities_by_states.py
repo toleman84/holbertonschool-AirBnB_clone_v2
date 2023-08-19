@@ -18,7 +18,7 @@ def close_session():
 @app.route("/cities_by_states", strict_slashes=False)
 def states_list():
     """gets all of the State objects from the storage engine"""
-    states = storage.all(State).order_by(State.name)
+    states = storage.all(State)
     return render_template("8-cities_by_states.html", states=states)
 
 
