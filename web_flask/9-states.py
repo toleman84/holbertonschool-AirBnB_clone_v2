@@ -14,12 +14,18 @@ def close_session(arg=None):
     storage.close()
 
 
-@app.route("/states")
+@app.route("/states", defaults={'id': None})
 @app.route("/states/<id>")
-def states_id(id=None):
+def states_id(id):
     """doc"""
     states = storage.all(State)
-    return render_template("9-states.html", states=states.values(), id=id)
+    if id is None:
+        return render_template("9-states.html", states=states.values(),
+                               ids=id)
+    for city in states.values():
+        if city.id == id:
+            return render_template('9-states.html', states=city, ids=id)
+    return render_template('9-states.html', ids=id)
 
 
 if __name__ == "__main__":

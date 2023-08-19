@@ -4,7 +4,7 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        {% if id == None %}
+        {% if ids == None %}
         <H1>States</H1>
         <UL>
             {% for state in states | sort(attribute='name') %}
@@ -12,17 +12,18 @@
             {% endfor %}
         </UL>
 
-        {% elif states.get('DeclarativeMeta.' + id) %}
-        <H1>State: {{ states['DeclarativeMeta.' + id].name }}</H1>
-        <H3>Cities:</H3>
-        <UL>
-            {% for city in states['DeclarativeMeta.' + id].cities | sort(attribute='name') %}
-            <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-            {% endfor %}
-        </UL>
+        {% elif states != None %}
+        <H1>Not found!</H1>
 
         {% else %}
-        <H1>Not found!</H1>
+        <H1>State: {{ states.name }}</H1>
+        <H3>Cities:</H3>
+        <UL>
+            {% for city in states.cities | sort(attribute='name') %}
+	        <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+	        {% endfor %}
+        </UL>
+
         {% endif %}
 
     </BODY>
