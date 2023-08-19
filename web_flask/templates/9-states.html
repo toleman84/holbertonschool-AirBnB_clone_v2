@@ -12,7 +12,6 @@
             {% endfor %}
         </UL>
 
-        {% elif id != None %}
         {% elif states.get('DeclarativeMeta.' + id) %}
         <H1>State: {{ states['DeclarativeMeta.' + id].name }}</H1>
         <H3>Cities:</H3>
@@ -21,9 +20,10 @@
             <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
             {% endfor %}
         </UL>
-        {% endfor %}
+
         {% else %}
         <H1>Not found!</H1>
         {% endif %}
+
     </BODY>
 </HTML>
