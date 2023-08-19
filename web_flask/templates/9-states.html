@@ -12,8 +12,8 @@
             {% endfor %}
         </UL>
 
-        {% elif states == ids %}
-        <H1>Not found!</H1>
+            {% elif ids != state.id %}
+            <H1>Not found!</H1>
 
         {% else %}
         <H1>State: {{ states.name }}</H1>

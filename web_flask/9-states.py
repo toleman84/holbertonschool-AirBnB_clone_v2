@@ -25,7 +25,7 @@ def states_id(id):
     for city in states.values():
         if city.id == id:
             return render_template('9-states.html', states=city, ids=id)
-    return render_template('9-states.html', states=states, ids=id)
+    return render_template('9-states.html', ids=id)
 
 
 if __name__ == "__main__":
