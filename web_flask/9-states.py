@@ -24,7 +24,7 @@ def states():
 @app.route("/states/<id>", strict_slashes=False)
 def states_id(id):
     """doc"""
-    state = storage.get(State, id)
+    state = storage.all(State)
     if state is not None:
         cities = state.cities
         return render_template("9-states.html", state=state.values(), cities=cities)
