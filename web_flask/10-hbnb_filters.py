@@ -20,7 +20,7 @@ def hbnb_filters():
     """doc"""
     states = storage.all(State)
     amenities = storage.all(Amenity)
-    return render_template("10-hbnb_filters.html", states=states,
+    return render_template("10-hbnb_filters.html", states=states.values(),
                            amenities=amenities)
 
 
