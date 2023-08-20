@@ -14,7 +14,7 @@ def close_session(arg=None):
     storage.close()
 
 
-@app.route("/states", defaults={'id': None})
+@app.route("/states")
 @app.route("/states/<id>")
 def states_id(id=None):
     """doc"""
