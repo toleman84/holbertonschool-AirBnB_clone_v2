@@ -12,6 +12,9 @@
             {% endfor %}
         </UL>
 
+        {% elif states is undefined %}
+        <H1>Not found!</H1>
+
         {% else %}
         <H1>State: {{ states.name }}</H1>
         <H3>Cities:</H3>
