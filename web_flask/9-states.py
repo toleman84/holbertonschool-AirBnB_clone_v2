@@ -15,12 +15,6 @@ def close_session(arg=None):
 
 
 @app.route("/states")
-def states_list():
-    """gets all of the State objects from the storage engine"""
-    states = storage.all(State)
-    return render_template("7-states_list.html", states=states.values())
-
-
 @app.route("/states/<id>")
 def states_id(id=None):
     """doc"""
