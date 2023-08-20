@@ -4,7 +4,7 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        {% if id != None %}
+        {% if id == None %}
         <H1>States</H1>
         <UL>
             {% for state in states | sort(attribute='name') %}
